@@ -35,7 +35,7 @@ def questionTwo():
 
     N = 10000 # number of nodes
     p = 0.000395 #probability of linking
-    e = 0.00001 # epson error
+    e = 0.00001 # épsilon error
   
     # building the Graph
     G = nx.Graph()
@@ -63,9 +63,9 @@ def valueOfP(j, G, kij, summatory):
     j: Execution moment
     G: Graph at J moment
     kij: Degree of node i at moment j
-    summatory: acumulative summatory of degrees at moment j    
+    summatory: accumulative summatory of degrees at moment j    
     """ 
-    e = 0.00001 #epson error
+    e = 0.00001 #épsilon error
     q = 4/3 #rational coefficient
 
     p = ((kij + e)/ summatory) * q
