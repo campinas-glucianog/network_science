@@ -2,6 +2,7 @@
 import matplotlib.pyplot as plt
 import collections
 import random
+import timeit
 from networkx import nx
 
 __author__ = 'Gabriel Luciano Gomes - RA 265673'
@@ -33,12 +34,14 @@ def questionTwo():
     """ QUESTION TWO: Create a graph with the following property:
     for every j > 1, add a link (i,j) for node i < j with a
     custom probability p describred bellow.
-    p = ((kij + e)/sum_{m=1}^{j-1}(k_{mj+e}))*q
+    p = ((kij + e)/sum_{m=1}^{j-1}(k_{mj}+e))*q
     where: 
         - kij = Degree of node i at moment j
         - e = épsilon error 
         - q = rational coefficient
     """
+
+    start = timeit.default_timer()
 
     N = 10000 # number of nodes
     e = 0.00001 # épsilon error
@@ -48,10 +51,14 @@ def questionTwo():
     for i in range(N):
         G.add_node(i)
 
-    for i in range(N):
-        for j in range(1, i):
+    for j in range(N):
+        summatory = 0
+        for m in range(1, j):
+            summatory += G.degree[m] + e 
+
+        for i in range(1, j):
             if (j > 1):
-                customProbability = valueOfP(G.degree[i], G, j)
+                customProbability = valueOfP(G.degree[i], summatory)
                 if (random.random() < customProbability): 
                     G.add_edge(i, j) 
 
@@ -61,19 +68,17 @@ def questionTwo():
     plotNormalScale(G, 'normal_scale_02.png')
     plotLogLogScale(G, 'loglog_scale_02.png')
 
-def valueOfP(kij, G, j):
+    stop = timeit.default_timer()
+    print('Time: ', stop - start) 
+
+def valueOfP(kij, summatory):
     """ Calculates the custom probabilty (p) for exercise #2.
     -Parameters:
     kij: Degree of node i at moment j
-    G: whole Graph
-    j: insant of execution
+    summatory: sum of degress at moment j
     """ 
     e = 0.00001 #épsilon error
     q = 4/3 #rational coefficient
-    summatory = 0
-
-    for i in range(1, j):
-        summatory += G.degree[i] + e
 
     p = ((kij + e)/summatory) * q
     return p
@@ -125,7 +130,7 @@ def plotLogLogScale(G, imageName):
     fig.savefig(imageName)
 
 if __name__ == "__main__":
-    questionOne()
+    #questionOne()
     questionTwo()
 
 
