@@ -58,7 +58,7 @@ def questionTwo():
 
         for i in range(1, j):
             if (j > 1):
-                customProbability = valueOfP(G.degree[i], summatory)
+                customProbability = getProbability(G.degree[i], summatory)
                 if (random.random() < customProbability): 
                     G.add_edge(i, j) 
 
@@ -71,7 +71,7 @@ def questionTwo():
     stop = timeit.default_timer()
     print('Time: ', stop - start) 
 
-def valueOfP(kij, summatory):
+def getProbability(kij, summatory):
     """ Calculates the custom probabilty (p) for exercise #2.
     -Parameters:
     kij: Degree of node i at moment j
