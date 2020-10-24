@@ -13,7 +13,7 @@ def buildGraph(filePath):
     for line in file:
         x, y = line.rstrip("\n").split('\t')
         G.add_edge(x, y)
-    return G       
+    return G 
 
 def plotLoglogScale(data, imageName):
     """ Plot and save Log Log Scale Graph 
@@ -26,6 +26,8 @@ def plotLoglogScale(data, imageName):
     accDegree = sorted(degreeCount.items(), key=lambda pair: pair[0], reverse=False) 
     
     degreeSeq = np.zeros(int(max(nodes_degree))+1)
+
+    print("Degree distribution: ", degreeCount)
 
     for x, y in accDegree:
         degreeSeq[x] = y
@@ -42,8 +44,6 @@ def plotLoglogScale(data, imageName):
     fig = plt.gcf()
     plt.show()
     fig.savefig(imageName)
-
-
 
 if __name__ == "__main__":
     graph = buildGraph("net.txt")
