@@ -19,7 +19,7 @@ class Methods:
     plt.show()
     fig.savefig(imageName)  
 
-  def plotNormalScale(self, G, imageName):
+  def plotNormalScale(self, G, plotTitle, imageName):
     """ Plot and save Normal Scale Graph 
     Parameters:
     -G: Graph to be plotted
@@ -32,7 +32,7 @@ class Methods:
     fig, ax = plt.subplots()
     plt.bar(deg, cnt, width=0.80)
 
-    plt.title("Degree Histogram")
+    plt.title(plotTitle)
     plt.ylabel("Count")
     plt.xlabel("Degree")
     ax.set_xticks([d + 0.4 for d in deg])
@@ -108,25 +108,27 @@ class Methods:
     Parameters:
     G- graph to be analysed
     """
-    hobbies, students = bipartite.sets(G)
-    wholeCC = bipartite.average_clustering(G)
-    hobbiesCC = bipartite.average_clustering(G, hobbies)
-    studentsCC = bipartite.average_clustering(G, students)
-    print("Whole Graph Average clustering coef:", wholeCC)
-    print("Hobbies Set Average clustering coef:", hobbiesCC)
-    print("Students set Average clustering coef", studentsCC)
+    cc = nx.average_clustering(G)
+    print("Graph Average clustering coef:", cc)
 
 
-  def createGephiFile(self, G):
+  def createGephiFile(self, G, fileName):
     """ Create file to be read in Gephi
     Parameters:
     G- graph to be written in the file
     """
-    f = open("data/network_for_gephi.csv", "a")
+    f = open("data/{0}.csv".format(fileName), "a")
     for s, d in G.edges():
       f.writelines("{0},{1}\n".format(s, d))
 
     f.close()
+
+  def createProjections(self, G):
+    Hobbies, Students = bipartite.sets(G)
+    projectionHobbies = bipartite.project(G, Hobbies)
+    projectionStudents = bipartite.project(G, Students)
+    return(projectionHobbies, projectionStudents)
+    
 
 
 

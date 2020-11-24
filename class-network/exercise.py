@@ -24,20 +24,46 @@ if __name__ == "__main__":
         bipartiteGraph.add_edges_from([(hobbies[x-1], line[0])])
   
   print(nx.info(bipartiteGraph))
+    
+  hobbiesProjection, studentProjection = methods.createProjections(bipartiteGraph)
 
-  # Executing methods
+  # Executing methods for whole graph
   methods.plotSetNormalScale(G=bipartiteGraph,
    graphSet=students, imageName="assets/normal_students.png", setName="Students")
   methods.plotSetNormalScale(G=bipartiteGraph,
    graphSet=hobbies, imageName="assets/normal_hobbies.png", setName="Hobbies")
-  methods.plotNormalScale(G=bipartiteGraph, imageName="assets/normal_scale.png")
 
+  methods.plotNormalScale(G=bipartiteGraph, 
+    plotTitle="Bipartite Graph Degree Histogram", 
+    imageName="assets/normal_scale.png")
   methods.averageDegree(G=bipartiteGraph, graphSet=students, setName="students")
   methods.averageDegree(G=bipartiteGraph, graphSet=hobbies, setName="hobbies")
 
   methods.connectedComponents(G=bipartiteGraph)
   methods.averageDistance(G=bipartiteGraph)
   methods.clusteringCoefficient(G=bipartiteGraph)
-  methods.createGephiFile(G=bipartiteGraph)
+  methods.createGephiFile(G=bipartiteGraph, fileName = "whole_graph")
+
+
+  #Methods for hobbies Projection
+  print(nx.info(hobbiesProjection))
+  methods.plotNormalScale(G=hobbiesProjection, 
+    plotTitle="Hobbies Projection Degree Histogram", 
+    imageName="assets/hobbies_normal_scale.png")
+  methods.connectedComponents(G=hobbiesProjection)
+  methods.averageDistance(G=hobbiesProjection)
+  methods.clusteringCoefficient(G=hobbiesProjection)
+  methods.createGephiFile(G=hobbiesProjection, fileName = "hobbies_projection")
+
+  #Methods for student projection
+  print(nx.info(studentProjection))
+  methods.plotNormalScale(G=hobbiesProjection, 
+    plotTitle="Students Projection Degree Histogram", 
+    imageName="assets/students_normal_scale.png")
+  methods.connectedComponents(G=studentProjection)
+  methods.averageDistance(G=studentProjection)
+  methods.clusteringCoefficient(G=studentProjection)
+  methods.createGephiFile(G=studentProjection, fileName = "students_projection")
+
 
 # %%
