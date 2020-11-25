@@ -53,6 +53,7 @@ if __name__ == "__main__":
   methods.connectedComponents(G=hobbiesProjection)
   methods.averageDistance(G=hobbiesProjection)
   methods.clusteringCoefficient(G=hobbiesProjection)
+  methods.clusteringCoefficientSingle(G=hobbiesProjection, nodes = hobbies)
   methods.createGephiFile(G=hobbiesProjection, fileName = "hobbies_projection")
 
   #Methods for student projection
@@ -63,6 +64,7 @@ if __name__ == "__main__":
   methods.connectedComponents(G=studentProjection)
   methods.averageDistance(G=studentProjection)
   methods.clusteringCoefficient(G=studentProjection)
+  methods.clusteringCoefficientSingle(G=studentProjection, nodes = students )
   methods.createGephiFile(G=studentProjection, fileName = "students_projection")
 
 

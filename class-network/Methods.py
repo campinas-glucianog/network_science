@@ -103,14 +103,15 @@ class Methods:
     ad = nx.average_shortest_path_length(G)
     print("Average distance within the graph:", ad)
 
+  def clusteringCoefficientSingle(self, G, nodes):
+    print(nx.clustering(G, nodes))
+
   def clusteringCoefficient(self, G):
     """ Compute graph clustering coefficient
     Parameters:
     G- graph to be analysed
     """
-    cc = nx.average_clustering(G)
-    print("Graph Average clustering coef:", cc)
-
+    cc = nx.average_clustering(G)   
 
   def createGephiFile(self, G, fileName):
     """ Create file to be read in Gephi
