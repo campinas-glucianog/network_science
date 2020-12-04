@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-def degreeCorrelationMatrix(G):
+
+
+def degreeCorrelationMatrixWithQi(G):
   avg_degree = sum(int(a_tuple[1]) for a_tuple in G.degree())/int(G.number_of_nodes())
 
   degrees = [y for x,y in G.degree()]
@@ -46,7 +48,22 @@ def degreeCorrelationMatrix(G):
   sns_plot = sns.heatmap(correlation_matrix, cmap="YlGnBu")
   figure = sns_plot.get_figure()    
   figure.savefig('svm_conf.png', dpi=400)
-  print("DONE")
+
+
+def degreeCorrelationMatrix(G):
+  degrees = [y for x,y in G.degree()]
+  correlation_matrix = [[0 for i in range(max(degrees)+1)] for j in range(max(degrees)+1)]
+
+  # counting links from degree i to degree j
+  for (node_i, node_j) in G.edges:
+    correlation_matrix[G.degree(node_i)][G.degree(node_j)] += 1   
+    correlation_matrix[G.degree(node_j)][G.degree(node_i)] += 1
+
+  correlation_matrix = correlation_matrix/np.matrix(correlation_matrix).sum()
+
+  sns_plot = sns.heatmap(correlation_matrix, cmap="YlGnBu")
+  figure = sns_plot.get_figure()    
+  figure.savefig('svm_conf.png', dpi=400)
 
 def plotDegreeCorrelationFunction(G):
   degreeCorrelation = nx.average_degree_connectivity(G)
