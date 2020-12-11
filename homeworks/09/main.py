@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-
+__author__ = 'Gabriel Luciano Gomes - RA 265673'
+__email__ = 'g265673@dac.unicamp.br'
 
 def degreeCorrelationMatrixWithQi(G):
   avg_degree = sum(int(a_tuple[1]) for a_tuple in G.degree())/int(G.number_of_nodes())
