@@ -1,0 +1,115 @@
+Name: 
+Type: Graph
+Number of nodes: 17499
+Number of edges: 128777
+Average degree:  14.7182
+Name: 
+Type: Graph
+Number of nodes: 4
+Number of edges: 3
+Average degree:   1.5000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 3
+Number of edges: 2
+Average degree:   1.3333
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 4
+Number of edges: 3
+Average degree:   1.5000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
+Name: 
+Type: Graph
+Number of nodes: 2
+Number of edges: 1
+Average degree:   1.0000
