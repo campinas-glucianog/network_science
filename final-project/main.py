@@ -43,11 +43,19 @@ def main():
         target='game_name')
     
 
-    #Played Games database
-    #played_db = dataBase.loc[dataBase['purchase'] == 'play']
-    #Played games network
-    #G_played = nwx.from_pandas_edgelist(played_db, 'user_id', 'game_name', ['hours_played'])
+    # Played Games database
+    # played_db = dataBase.loc[dataBase['purchase'] == 'play']
+    # Played games network
+    # G_played = nwx.from_pandas_edgelist(
+    #     df=played_db,
+    #     'user_id',
+    #     'game_name',
+    #     ['hours_played'])
 
+    
+
+    # algorithms.mostPurchasedGames(purchased_db)
+    # algorithms.mostPlayedGames(played_db)
 
     executeMethods(G_purchased, 'purchased_graph.png', db = purchased_db)
 

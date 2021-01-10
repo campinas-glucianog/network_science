@@ -264,3 +264,13 @@ class Algorithms():
 
     plt.savefig('images/communities.png', dpi=400)
 
+  def mostPurchasedGames(self, db):
+    print(db['game_name'].value_counts().head(5))
+
+  def mostPlayedGames(self, db):
+    print(db.groupby(['game_name'])[['hours_played']].sum()
+      .sort_values('hours_played', ascending=False).head(5))
+    
+
+
+
